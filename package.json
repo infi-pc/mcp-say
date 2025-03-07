@@ -1,20 +1,44 @@
 {
   "name": "mcp-say",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "dist/index.js",
+  "version": "0.0.1",
+  "description": "MCP server to say things",
+  "license": "MIT",
+  "keywords": [
+    "modelcontextprotocol",
+    "mcp",
+    "mcp-server",
+    "tts",
+    "text-to-speech",
+    "say"
+  ],
+  "author": "Michael Musil",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infi-pc/mcp-say.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "mcp-say": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node index.ts"
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.3",
+    "say": "^0.16.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.9",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "@types/node": "^22",
+    "shx": "^0.3.4",
+    "typescript": "^5.7.2"
   }
 }
